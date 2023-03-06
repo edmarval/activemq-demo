@@ -1,0 +1,26 @@
+1)
+Run ActiveMQ locally
+put a simple hello world message from the UI into a queue called testing-consuming
+Put the code to listen to the queue and log the message in the console
+2)
+now put a JSON message representing a user with the following structure:
+{
+     name: "Testy",
+     surname: "McTesty"
+}
+Unmarshal the message into the the UserDetails Entity created
+Log the message using the console
+Convert the User into CompactUserDetails
+Marshal the result
+Put the Message into the queue "testing-producing"
+check that the message is in the queue in the UI
+3)
+ Add an Exception Handler that will log in the console the exception and will send the message to the dead letter queue
+now send a message that doesnt have JSON format
+Check that the message has been put in the dead-letter-queue
+4)
+Add another Exception handler to handle IllegalStateException add a maximum redeliveries of 3 a delay of 2000 milliseconds and a backOffMultiplier of 3 before sending it to the dead-letter-queue
+Add to the converter a print in the console "Hello from the converter" ,the user and the current date
+Add in the converter an if that if the name of the user is Testy, throw an IllegalStateException with the message "Testy is not a supported user name"
+Check the console to see the retries
+Check that the deade-letter-queue in the UI has the original message
