@@ -11,6 +11,13 @@ public class MessageHandler extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
+
+        onException(Exception.class)
+                .useOriginalMessage()
+                .handled(true)
+                .to("activemq:queue:user-dead-letter-queue");
+
+
         from("activemq:queue:test-consuming")
                 .log("==============This is the Message==============")
                 .log("${body}")
