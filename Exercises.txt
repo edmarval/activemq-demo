@@ -22,10 +22,10 @@
 - now send a message that doesnt have JSON format
 - Check that the message has been put in the dead-letter-queue
 5)
-- Add another Exception handler to handle IllegalStateException add a maximum redeliveries of 3
+- Add another Exception handler to handle IllegalArgumentException add a maximum redeliveries of 2
     a delay of 2000 milliseconds and a backOffMultiplier of 3 before sending it to the dead-letter-queue
-- Add to the converter a print in the console "Hello from the converter" ,the user and the current date
+- Add to the converter a print in the console "Hello from the converter" ,the user and the current time truncated in seconds
 - Add in the converter an if that if the name of the user is Testy, throw an
-    IllegalStateException with the message "Testy is not a supported user name"
+    IllegalArgumentException with the message "Testy is not a supported user name"
 - Check the console to see the retries
 - Check that the dead-letter-queue in the UI has the original message
