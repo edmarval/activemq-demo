@@ -9,10 +9,5 @@ public class MessageHandler extends RouteBuilder {
     @Override
     public void configure() throws Exception {
 
-
-        from("activemq:queue:test-consumings")
-                .log("==============This is the Message==============")
-                .log("${body}")
-                .to("activemq:queue:testing-producings");
     }
 }
