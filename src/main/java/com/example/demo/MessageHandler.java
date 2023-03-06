@@ -8,6 +8,9 @@ public class MessageHandler extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-        //Put your code here
+        from("activemq:queue:test-consuming")
+                .log("==============This is the Message==============")
+                .log("${body}")
+                .end();
     }
 }
