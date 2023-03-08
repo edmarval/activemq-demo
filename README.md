@@ -5,7 +5,7 @@ For further reference, please consider the following sections:
 
 * [Official Apache Camel Documentation](https://camel.apache.org/manual/routes.html)
 
-### To Run ActiveMQ
+### To Run ActiveMQ Locally
 To run ActiveMQ from the docker command:
 
 docker run -p 61616:61616 -p 8161:8161 rmohr/activemq
